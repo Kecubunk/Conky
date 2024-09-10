@@ -1,0 +1,88 @@
+#!/bin/bash 
+
+R(){
+ killall -q conky 
+ conky
+}
+
+K(){
+ killall -q conky
+}
+
+D(){
+ killall -q conky
+ conky 
+}
+
+B(){
+ killall -q conky
+ conky -c $HOME/.config/conky/bottom.conkyrc &
+}
+
+L(){
+ killall -q conky
+ conky -c $HOME/.config/conky/left.conkyrc &
+}
+
+F(){
+ killall -q conky
+ conky -c $HOME/.config/conky/full.conkyrc &
+}
+
+BL(){
+ killall -q conky
+ conky -c $HOME/.config/conky/blue.conkyrc &
+}
+
+O(){
+ killall -q conky
+ conky -c $HOME/.config/conky/orange.conkyrc &
+}
+
+T(){
+ killall -q conky
+ conky -c $HOME/.config/conky/top.conkyrc &
+}
+
+TR(){
+ killall -q conky
+ conky -c $HOME/.config/conky/tree.conkyrc &
+}
+
+info(){
+ killall -q conky
+ conky -c $HOME/.config/conky/info.conkyrc &
+}
+
+y(){
+yad --title "Conky Chooser" --form --width=400 --height=400 --text="Preview\n\n"  --text-align=center --image=debian-logo 
+}
+
+export -f R
+export -f K
+
+export -f D
+export -f B
+export -f L
+export -f F
+
+export -f BL
+export -f T
+export -f O
+export -f TR
+export -f info
+export -f y
+
+yad --title "Conky Chooser" --form --width=400 --height=400 --text="Select Youre Conky Mode : \n\n" --text-align=center --image=debian-logo \
+--fixed --borders=30 \
+--field="Default":fbtn  "bash -c D" \
+--field="Top":fbtn "bash -c T" \
+--field="Bottom":fbtn "bash -c B" \
+--field="Left":fbtn "bash -c L" \
+--field="Right":fbtn "bash -c R" \
+--field="Full":fbtn "bash -c F" \
+--field="Tree":fbtn "bash -c TR" \
+--field="Restart":fbtn "bash -c R" \
+--field="KillAll":fbtn "bash -c K" \
+--button=gtk-ok:0 
+
